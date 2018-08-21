@@ -1,0 +1,6 @@
+[submodule "coco-caption"]
+	path = coco-caption
+	url = https://github.com/daqingliu/coco-caption
+[submodule "cider"]
+	path = cider
+	url = https://github.com/daqingliu/cider

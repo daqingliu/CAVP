@@ -1,4 +1,11 @@
 # Byte-compiled / optimized / DLL files
+data
+/data/*
+!/data/README.md
+
+log
+log_bkp
+
 __pycache__/
 *.py[cod]
 *$py.class
