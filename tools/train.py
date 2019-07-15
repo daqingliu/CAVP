@@ -103,7 +103,7 @@ def train(opt):
             # If start self critical training
             if opt.self_critical_after != -1 and epoch >= opt.self_critical_after:
                 sc_flag = True
-                init_scorer(opt.cached_tokens)
+                init_scorer()
             else:
                 sc_flag = False
 

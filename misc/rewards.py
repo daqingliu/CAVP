@@ -19,9 +19,9 @@ Bleu_scorer = None
 CiderD_scorer = CiderD(df='corpus')
 
 
-def init_scorer(cached_tokens):
+def init_scorer():
     global CiderD_scorer
-    CiderD_scorer = CiderD_scorer or CiderD(df=cached_tokens)
+    CiderD_scorer = CiderD_scorer or CiderD(df='corpus')
     global Bleu_scorer
     Bleu_scorer = Bleu_scorer or Bleu(4)
 

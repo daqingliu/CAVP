@@ -45,7 +45,6 @@ def parse_eval_opt():
     parser.add_argument('--temperature', type=float, default=1.0)
 
     # For evaluation on MSCOCO images from some split:
-    parser.add_argument('--input_fc_dir', type=str, default='data/cocotalk_fc')
     parser.add_argument('--input_att_dir', type=str, default='data/cocotalk_box_36')
     parser.add_argument('--input_label_h5', type=str, default='data/cocotalk_label.h5')
     parser.add_argument('--input_json', type=str, default='data/cocotalk.json')
@@ -74,8 +73,7 @@ def split_eval():
     infos['opt'] = Bunch(infos['opt'])
 
     # override and collect parameters
-    if len(opt.input_fc_dir) == 0:
-        opt.input_fc_dir = infos['opt'].input_fc_dir
+    if len(opt.input_att_dir) == 0:
         opt.input_att_dir = infos['opt'].input_att_dir
         opt.input_label_h5 = infos['opt'].input_label_h5
     if len(opt.input_json) == 0:
@@ -86,7 +84,7 @@ def split_eval():
         opt.id = infos['opt'].id
 
     ignore = ["id", "batch_size", "beam_size", "start_from", "language_eval",
-              "input_fc_dir", "input_att_dir", "input_label_h5", "input_json"]
+              "input_att_dir", "input_label_h5", "input_json"]
     for k in vars(infos['opt']).keys():
         if k not in ignore:
             if k in vars(opt):

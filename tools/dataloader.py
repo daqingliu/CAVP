@@ -50,10 +50,8 @@ class DataLoader(data.Dataset):
         print('vocab size is ', self.vocab_size)
 
         # open the hdf5 file
-        print('DataLoader loading h5 file: ', opt.input_fc_dir, opt.input_att_dir, opt.input_label_h5)
+        print('DataLoader loading h5 file: ', opt.input_att_dir, opt.input_label_h5)
         self.h5_label_file = h5py.File(self.opt.input_label_h5, 'r', driver='core')
-
-        self.input_fc_dir = self.opt.input_fc_dir
         self.input_att_dir = self.opt.input_att_dir
 
         # load in the sequence data

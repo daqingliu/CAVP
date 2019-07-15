@@ -21,10 +21,8 @@ def parse_opt():
 
     # Data input path
     parser.add_argument('--input_json', type=str, default='data/coco_with_gt.json')
-    parser.add_argument('--input_fc_dir', type=str, default='data/cocotalk_fc')
     parser.add_argument('--input_att_dir', type=str, default='data/cocotalk_box_36')
     parser.add_argument('--input_label_h5', type=str, default='data/coco_label_with_gt.h5')
-    parser.add_argument('--cached_tokens', type=str, default='data/coco-train-idxs.p')
 
     # Model parameters settings
     parser.add_argument('--rnn_size', type=int, default=1300)
