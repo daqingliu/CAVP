@@ -181,11 +181,8 @@ class CAVPFrame(BasicModel):
         roi_feats, att_masks = self.clip_att(roi_feats, att_masks)
 
         sample_max = opt.get('sample_max', 1)
-        beam_size = opt.get('beam_size', 1)
         temperature = opt.get('temperature', 1.0)
         decoding_constraint = opt.get('decoding_constraint', 0)
-        if beam_size > 1:
-            return self._sample_beam(fc_feats, roi_feats, att_masks, opt)
 
         batch_size = fc_feats.size(0)
         state = self.init_hidden(batch_size)

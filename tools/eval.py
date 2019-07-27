@@ -30,7 +30,6 @@ def parse_eval_opt():
     parser.add_argument('--split', type=str, default='test')
     parser.add_argument('--sample_max', type=int, default=1)
     parser.add_argument('--max_ppl', type=int, default=0)
-    parser.add_argument('--beam_size', type=int, default=5)
     parser.add_argument('--decoding_constraint', type=int, default=1)
 
     # Basic options
@@ -46,8 +45,8 @@ def parse_eval_opt():
 
     # For evaluation on MSCOCO images from some split:
     parser.add_argument('--input_att_dir', type=str, default='data/cocotalk_box_36')
-    parser.add_argument('--input_label_h5', type=str, default='data/cocotalk_label.h5')
-    parser.add_argument('--input_json', type=str, default='data/cocotalk.json')
+    parser.add_argument('--input_label_h5', type=str, default='data/coco_label_with_gt.h5')
+    parser.add_argument('--input_json', type=str, default='data/coco_with_gt.json')
 
     # misc
     parser.add_argument('--id', type=str, default='')
@@ -83,7 +82,7 @@ def split_eval():
     if len(opt.id) == 0:
         opt.id = infos['opt'].id
 
-    ignore = ["id", "batch_size", "beam_size", "start_from", "language_eval",
+    ignore = ["id", "batch_size", "start_from", "language_eval",
               "input_att_dir", "input_label_h5", "input_json"]
     for k in vars(infos['opt']).keys():
         if k not in ignore:
